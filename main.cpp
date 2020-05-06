@@ -13,9 +13,26 @@ struct node {
     node *right = nullptr;
 };
 
+void createList() {
+    char x[100];
+    f>>x;
+
+    for (int i = 0; i < strlen(x) - 1; i++) {
+        if (x[i] == '(' || x[i] == ')')
+            strcpy(x + i, x + i + 1);
+        else if (x[i] == ' ' && x[i + 1] == ' ')
+            strcpy(x + i, x + i + 1);
+    }
+    strcpy(x + strlen(x) - 1, "");
+
+    for (int i = 0; i < strlen(x); i++)
+        list[0][i] = x[i];
+}
+
 void createTree(node *mNode) {
     strcpy(mNode->token, list[n++]);
     if (!strchr("+-/*", list[n - 1][0])) {
+        mNode->value = list[n - 1][0];
         mNode->left = nullptr;
         mNode->right = nullptr;
     } else if (!isdigit(list[n - 1][1])) {
@@ -33,10 +50,8 @@ double computeExpression(node *mNode) {
         mNode->value = atof(mNode->token);
         return mNode->value;
     }
-
     computeExpression(mNode->left);
     computeExpression(mNode->right);
-
     if (strchr(mNode->token, '+'))
         mNode->value = (mNode->left)->value + (mNode->right)->value;
 
@@ -50,28 +65,12 @@ double computeExpression(node *mNode) {
         mNode->value = (mNode->left)->value / (mNode->right)->value;
 }
 
-void createList() {
-    char x[100];
-    f>>x;
-
-    for (int i = 0; i < strlen(x) - 1; i++) {
-        if (x[i] == '(' || x[i] == ')')
-            strcpy(x + i, x + i + 1);
-        else if (x[i] == ' ' && x[i + 1] == ' ')
-            strcpy(x + i, x + i + 1);
-    }
-    strcpy(x + strlen(x) - 1, "");
-
-    for (int i = 0; i < strlen(x); i++)
-        list[0][i] = x[i];
-}
-
 int main() {
-    node *first = new node;
+    node *root = new node;
     createList();
-    createTree(first);
-    computeExpression(first);
-    std::cout << first->value;
+    createTree(root);
+    computeExpression(root);
+    std::cout << root->value;
 
     f.close();
     return 0;
