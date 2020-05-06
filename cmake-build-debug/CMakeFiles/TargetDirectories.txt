@@ -1,0 +1,3 @@
+C:/Users/murja/CLionProjects/Homework_3_ADS_Darco_Murja/cmake-build-debug/CMakeFiles/Homework_3_ADS_Darco_Murja.dir
+C:/Users/murja/CLionProjects/Homework_3_ADS_Darco_Murja/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/murja/CLionProjects/Homework_3_ADS_Darco_Murja/cmake-build-debug/CMakeFiles/rebuild_cache.dir

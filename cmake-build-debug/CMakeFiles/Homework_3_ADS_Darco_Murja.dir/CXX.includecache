@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/murja/CLionProjects/Homework_3_ADS_Darco_Murja/main.cpp
+fstream
+-
+iostream
+-
+string.h
+-
+
